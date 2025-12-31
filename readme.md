@@ -188,4 +188,3 @@ Useful for copy-paste or presentations.
 
 Personal dotfiles.
 Use, fork, or adapt freely.
-
