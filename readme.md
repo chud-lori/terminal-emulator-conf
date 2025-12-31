@@ -2,7 +2,7 @@
 
 A reproducible macOS terminal setup built for **software development**, optimized for **speed, clarity, and context switching**.
 
-This repository allows me to bootstrap the same environment on any new machine with a single script.
+This repository allows me to bootstrap the same environment on any new machine with **one command**.
 
 ---
 
@@ -22,8 +22,8 @@ This repository allows me to bootstrap the same environment on any new machine w
 - Multiple tabs with structured pane layouts
 - Fast pane navigation without mode switching
 - Fullscreen toggle per pane
-- Ghostty GPU-accelerated terminal with transparency and blur
-- Consistent prompt across machines
+- GPU-accelerated Ghostty terminal with transparency and blur
+- Reproducible setup via Brewfile + Makefile
 
 ---
 
@@ -38,31 +38,31 @@ cd <repo>
 
 ---
 
-### 2. Make setup script executable
+### 2. Install everything (recommended)
 
 ```bash
-chmod +x setup.sh
-```
-
-This is required only once per machine.
-
----
-
-### 3. Run setup script
-
-```bash
-./setup.sh
+make install
 ```
 
 This will:
 
-- Install dependencies via Homebrew
+- Install dependencies using `Brewfile`
 - Symlink all configuration files
-- Safely update `.zshrc` (no overwrite, no duplication)
+- Safely update `.zshrc`
+- Make `setup.sh` executable automatically
 
 ---
 
-### 4. Restart terminal
+### Alternative (manual steps)
+
+If you prefer step-by-step:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+Then reload shell:
 
 ```bash
 source ~/.zshrc
@@ -72,7 +72,7 @@ source ~/.zshrc
 
 ## Usage
 
-Start the main workspace:
+Start the main development workspace:
 
 ```bash
 work
@@ -88,7 +88,7 @@ work
 - **Next tab**: `j` or `l`
 - **Previous tab**: `h` or `k`
 - **Jump to tab**: `Ctrl + t` then `1–9`
-- **Exit mode**: `Esc`
+- **Exit tab mode**: `Esc`
 
 ---
 
@@ -114,7 +114,7 @@ work
 - **Fullscreen focused pane**: `Ctrl + p` then `f`
 - **Restore layout**: `Ctrl + p` then `f`
 
-This is the recommended workflow instead of resizing panes.
+Recommended instead of resizing panes.
 
 ---
 
@@ -123,7 +123,18 @@ This is the recommended workflow instead of resizing panes.
 - **Lock input**: `Ctrl + g`
 - **Unlock input**: `Ctrl + g`
 
-Useful when copy-pasting or presenting.
+Useful for copy-paste or presentations.
+
+---
+
+## Makefile Commands
+
+| Command | Description |
+|------|------------|
+| `make install` | Full setup (deps + configs) |
+| `make deps` | Install Homebrew dependencies only |
+| `make link` | Re-link config files |
+| `make reload` | Reload `.zshrc` |
 
 ---
 
@@ -132,6 +143,8 @@ Useful when copy-pasting or presenting.
 ```text
 .
 ├── README.md
+├── Makefile
+├── Brewfile
 ├── setup.sh
 ├── ghostty/
 │   └── config
@@ -147,8 +160,8 @@ Useful when copy-pasting or presenting.
 
 ## Design Philosophy
 
-- Tabs represent **context** (Code, AI, Infra, Runner)
-- Panes represent **tasks**
+- **Tabs = context** (Code, AI, Infra, Runner)
+- **Panes = tasks**
 - Prefer fullscreen toggling over resizing
 - One responsibility per pane
 - Keyboard-first workflow
