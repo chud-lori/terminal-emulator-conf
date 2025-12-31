@@ -55,16 +55,9 @@ This will:
 
 ### Alternative (manual steps)
 
-If you prefer step-by-step:
-
 ```bash
 chmod +x setup.sh
 ./setup.sh
-```
-
-Then reload shell:
-
-```bash
 source ~/.zshrc
 ```
 
@@ -77,6 +70,20 @@ Start the main development workspace:
 ```bash
 work
 ```
+
+---
+
+## Keyboard Notes (macOS)
+
+On **macOS**, the following keys are equivalent:
+
+- **Alt = Option (⌥)**
+
+Ghostty is configured with:
+
+- `macos-option-as-alt = true`
+
+So all bindings using **Alt** can be triggered with the **Option (⌥)** key.
 
 ---
 
@@ -94,10 +101,10 @@ work
 
 ### Pane Navigation (Fast, No Mode)
 
-- `Alt + h` → move left
-- `Alt + j` → move down
-- `Alt + k` → move up
-- `Alt + l` → move right
+- `Alt / Option + h` → move left
+- `Alt / Option + j` → move down
+- `Alt / Option + k` → move up
+- `Alt / Option + l` → move right
 
 ---
 
@@ -173,6 +180,7 @@ Useful for copy-paste or presentations.
 - Zellij colors follow the terminal theme (Ghostty)
 - Oh My Posh controls prompt and status colors
 - Nerd Font is required for icons
+- Option (⌥) is used as Alt on macOS
 
 ---
 
@@ -180,3 +188,4 @@ Useful for copy-paste or presentations.
 
 Personal dotfiles.
 Use, fork, or adapt freely.
+
