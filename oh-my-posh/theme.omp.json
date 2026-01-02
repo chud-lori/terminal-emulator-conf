@@ -67,7 +67,7 @@
           "type": "python",
           "style": "plain",
           "foreground": "#98C379",
-          "template": "{{ if .Venv }}  {{ .Venv }}{{ else if .Env.VIRTUAL_ENV }}  {{ .Env.VIRTUAL_ENV | base }}{{ else if .Version }}  {{ .Version }}{{ end }}",
+          "template": "{{ if or (.Venv) (.Env.VIRTUAL_ENV) }}  {{ if .Venv }}{{ .Venv }}{{ else }}{{ .Env.VIRTUAL_ENV | base }}{{ end }} {{ .Major }}.{{ .Minor }}.{{ .Patch }}{{ end }}",
           "options": {
             "display_mode": "always",
             "fetch_virtual_env": true,
