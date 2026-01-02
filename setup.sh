@@ -43,7 +43,9 @@ if ! grep -q "export TERM=xterm-256color" "$ZSHRC"; then
 fi
 
 if ! grep -q 'alias work=' "$ZSHRC"; then
-  echo 'alias work="zellij --new-session-with-layout work --session work"' >> "$ZSHRC"
+    # gracefull start
+  echo 'alias work-tab="zellij delete-session work 2>/dev/null; zellij --new-session-with-layout work --session work"' >> "$ZSHRC"
+
 fi
 
 echo "✔ Setup complete"
