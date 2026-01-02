@@ -44,7 +44,7 @@ fi
 
 if ! grep -q 'alias work=' "$ZSHRC"; then
     # gracefull start and start from home dir
-  echo 'cd; alias work-tab="zellij delete-session work 2>/dev/null; zellij --new-session-with-layout work --session work"' >> "$ZSHRC"
+  echo 'alias work-tab="cd; zellij delete-session work 2>/dev/null; zellij --new-session-with-layout work --session work"' >> "$ZSHRC"
 
 fi
 
