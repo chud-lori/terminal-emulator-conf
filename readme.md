@@ -63,6 +63,9 @@ source ~/.zshrc
 
 ---
 
+> [!IMPORTANT]
+> After `zjstatus` set up, when first time open zellij, the prompt to accept permission will appear in the bottom to type `y`, you can just click in the prompt and then type `y`, because sometimes moving to locked mode not always work
+
 ## Usage
 
 Start the main development workspace:
