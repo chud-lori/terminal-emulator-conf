@@ -18,8 +18,18 @@ fi
 echo "▶ Creating config directories..."
 
 mkdir -p ~/.config/zellij/layouts
+mkdir -p ~/.config/zellij/plugins
 mkdir -p ~/.config/ghostty
 mkdir -p ~/.config/oh-my-posh
+
+echo "▶ Downloading Zellij plugins..."
+
+if [ ! -f ~/.config/zellij/plugins/zjstatus.wasm ]; then
+  echo "▶ Downloading zjstatus plugin..."
+  curl -L https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm -o ~/.config/zellij/plugins/zjstatus.wasm
+else
+  echo "▶ zjstatus plugin already exists, skipping download"
+fi
 
 echo "▶ Linking configuration files..."
 

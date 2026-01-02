@@ -1,26 +1,45 @@
 layout name="work" {
 
-    // ===== Common UI =====
     default_tab_template {
+
+        // TOP BAR (zjstatus)
         pane size=1 borderless=true {
-            plugin location="zellij:tab-bar"
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                // -- COLORS --
+                color_bg "#1e1e2e"
+                color_fg "#cdd6f4"
+                color_active "#89b4fa"
+                color_inactive "#313244"
+                color_magenta "#cba6f7"
+
+                // -- FORMATTING --
+                format_left  "#[fg=$active,bold]  {session} {tabs}"
+                format_right "#[fg=$magenta,bold]#[bg=$magenta,fg=#11111b]  {cwd} #[fg=$magenta,bg=default]"
+                format_space ""
+
+                // -- TABS --
+                tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
+                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
+
+                // -- MODES --
+                mode_normal "#[fg=$active] {name} "
+                mode_locked "#[fg=#f38ba8] {name} "
+            }
         }
+
+        // MAIN CONTENT
         children
+
+        // BOTTOM STATUS (builtin, optional but recommended)
         pane size=2 borderless=true {
             plugin location="zellij:status-bar"
         }
     }
 
-    // =====================================================
-    // AI TAB (single pane)
-    // =====================================================
     tab name="AI" focus=true {
         pane
     }
 
-    // =====================================================
-    // Code TAB (4 panes - 2x2 grid)
-    // =====================================================
     tab name="Code" {
         pane split_direction="vertical" {
             pane split_direction="horizontal" {
@@ -34,9 +53,6 @@ layout name="work" {
         }
     }
 
-    // =====================================================
-    // App Runner TAB (2 vertical splits)
-    // =====================================================
     tab name="App Runner" {
         pane split_direction="vertical" {
             pane
@@ -44,9 +60,6 @@ layout name="work" {
         }
     }
 
-    // =====================================================
-    // Infra TAB (1 big left, 2 stacked right)
-    // =====================================================
     tab name="Infra" {
         pane split_direction="vertical" {
             pane
@@ -57,9 +70,6 @@ layout name="work" {
         }
     }
 
-    // =====================================================
-    // Shell TAB (1 top, 2 bottom)
-    // =====================================================
     tab name="Shell" {
         pane split_direction="horizontal" {
             pane
@@ -70,4 +80,3 @@ layout name="work" {
         }
     }
 }
-

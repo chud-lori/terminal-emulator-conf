@@ -6,3 +6,7 @@ keybinds {
     bind "Alt l" { MoveFocus "Right"; }
   }
 }
+
+plugins {
+  zjstatus location="file:~/.config/zellij/plugins/zjstatus.wasm"
+}
