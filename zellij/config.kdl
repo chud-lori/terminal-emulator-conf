@@ -10,3 +10,5 @@ keybinds {
 plugins {
   zjstatus location="file:~/.config/zellij/plugins/zjstatus.wasm"
 }
+
+pane_frames false
