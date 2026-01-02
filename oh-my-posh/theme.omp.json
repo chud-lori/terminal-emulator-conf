@@ -69,10 +69,11 @@
           "foreground": "#98C379",
           "template": "{{ if or (.Venv) (.Env.VIRTUAL_ENV) }}  {{ if .Venv }}{{ .Venv }}{{ else }}{{ .Env.VIRTUAL_ENV | base }}{{ end }} {{ .Major }}.{{ .Minor }}.{{ .Patch }}{{ end }}",
           "options": {
-            "display_mode": "always",
+            "display_mode": "environment",
             "fetch_virtual_env": true,
             "fetch_version": true,
-            "home_enabled": true
+            "home_enabled": true,
+            "cache_duration": "10m"
           }
         },
         {
