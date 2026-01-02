@@ -3,37 +3,71 @@ layout name="work" {
     default_tab_template {
 
         // TOP BAR (zjstatus)
-        pane size=1 borderless=true {
-            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-                // -- COLORS --
-                color_bg "#1e1e2e"
-                color_fg "#cdd6f4"
-                color_active "#89b4fa"
-                color_inactive "#313244"
-                color_magenta "#cba6f7"
-
-                // -- FORMATTING --
-                format_left  "#[fg=$active,bold]  {session} {tabs}"
-                format_right "#[fg=$magenta,bold]#[bg=$magenta,fg=#11111b]  {cwd} #[fg=$magenta,bg=default]"
-                format_space ""
-
-                // -- TABS --
-                tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
-                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
-
-                // -- MODES --
-                mode_normal "#[fg=$active] {name} "
-                mode_locked "#[fg=#f38ba8] {name} "
-            }
-        }
+        // pane size=1 borderless=true {
+        //     plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+        //         // -- COLORS --
+        //         color_bg "#1e1e2e"
+        //         color_fg "#cdd6f4"
+        //         color_active "#89b4fa"
+        //         color_inactive "#313244"
+        //         color_magenta "#cba6f7"
+        //
+        //         // -- FORMATTING --
+        //         format_left  "#[fg=$active,bold]  {session} {tabs}"
+        //         format_right "#[fg=$magenta,bold]#[bg=$magenta,fg=#11111b]  {cwd} #[fg=$magenta,bg=default]"
+        //         format_space ""
+        //
+        //         // -- TABS --
+        //         tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
+        //         tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
+        //
+        //         // -- MODES --
+        //         mode_normal "#[fg=$active] {name} "
+        //         mode_locked "#[fg=#f38ba8] {name} "
+        //     }
+        // }
 
         // MAIN CONTENT
         children
 
-        // BOTTOM STATUS (builtin, optional but recommended)
-        pane size=2 borderless=true {
-            plugin location="zellij:status-bar"
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                // ===== Layout =====
+                format_left  "#[fg=$lavender,bold]  {session} #[fg=$inactive]│ {tabs}"
+                format_right "{mode}"
+
+                // ===== Colors =====
+                color_bg "#1e1e2e"
+                color_fg "#cdd6f4"
+                color_active "#89b4fa"
+                color_inactive "#585b70"
+                color_lavender "#b4befe"
+                color_green "#a6e3a1"
+                color_orange "#fab387"
+                color_yellow "#f9e2af"
+                color_red "#f38ba8"
+
+                // ===== Tabs =====
+                tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
+                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
+
+                // ===== Modes =====
+                mode_normal "#[fg=$lavender,bold]#[bg=$lavender,fg=#11111b] 󰍹 NORMAL #[fg=$lavender,bg=default]"
+                mode_pane   "#[fg=$green,bold]#[bg=$green,fg=#11111b] 󰌒 PANE #[fg=$green,bg=default]"
+                mode_resize "#[fg=$orange,bold]#[bg=$orange,fg=#11111b] 󰉉 RESIZE #[fg=$orange,bg=default]"
+                mode_move   "#[fg=$yellow,bold]#[bg=$yellow,fg=#11111b] 󰆾 MOVE #[fg=$yellow,bg=default]"
+                mode_tab    "#[fg=$active,bold]#[bg=$active,fg=#11111b] 󰓩 TAB #[fg=$active,bg=default]"
+                mode_locked "#[fg=$red,bold]#[bg=$red,fg=#11111b] 󰌾 LOCKED #[fg=$red,bg=default]"
+
+                format_hide_on_normal "false"
+            }
         }
+
+
+        // BOTTOM STATUS (builtin, optional but recommended)
+        // pane size=2 borderless=true {
+        //     plugin location="zellij:status-bar"
+        // }
     }
 
     // =====================================================
