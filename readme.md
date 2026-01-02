@@ -108,6 +108,14 @@ So all bindings using **Alt** can be triggered with the **Option (⌥)** key.
 
 ---
 
+### Pane Split
+
+- **Enter pane mode**: `Ctrl + p`
+- **Split horizontal**: `r`
+- **Split vertical**: `d`
+
+---
+
 ### Pane Mode
 
 - **Enter pane mode**: `Ctrl + p`
