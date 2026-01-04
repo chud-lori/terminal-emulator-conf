@@ -59,6 +59,12 @@ layout name="work" {
                 mode_tab    "#[fg=$active,bold]#[bg=$active,fg=#11111b] 󰓩 TAB #[fg=$active,bg=default]"
                 mode_locked "#[fg=$red,bold]#[bg=$red,fg=#11111b] 󰌾 LOCKED #[fg=$red,bg=default]"
 
+                // ===== Fullscreen Indicator =====
+                // Normal active tab (Blue)
+                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
+                // Fullscreen active tab (Yellow) - Use this instead of the indicator
+                tab_active_fullscreen "#[fg=$yellow]#[bg=$yellow,fg=#11111b,bold] {name} (FULL) #[fg=$yellow,bg=default] "
+
                 format_hide_on_normal "false"
             }
         }
