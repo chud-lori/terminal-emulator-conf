@@ -27,6 +27,19 @@ This repository allows me to bootstrap the same environment on any new machine w
 
 ---
 
+## Why Zellij + Ghostty (vs. iTerm2)?
+
+**The Transition:** I previously relied on iTerm2 for its native splits and tabs. However, as my workflow grew more complex, I moved to a **Zellij + Ghostty** stack to solve specific pain points regarding persistence and performance.
+
+This stack decouples the **renderer** (Ghostty) from the **workspace manager** (Zellij):
+
+1.  **Persistence & Resilience**: In iTerm2, if the app crashes or you `Cmd + Q`, your tabs and running processes die. Zellij runs as a persistent server; if Ghostty closes, your session stays alive in the background. Running `work` simply re-attaches you to your active state.
+2.  **Performance (GPU vs. CPU)**: Ghostty is built in Zig and is GPU-accelerated. It handles rendering much faster and with lower latency than iTerm2, especially when dealing with high-frequency terminal output or large buffers.
+3.  **Declarative Environments**: Instead of manually splitting panes every time you start a project, this setup uses `.kdl` layout files. This ensures your workspace (tabs for Code, AI, Infra) is identical every time you boot up.
+4.  **Remote Continuity**: This setup is terminal-agnostic. You can SSH into this machine from any device and re-attach to the exact same Zellij session, keeping your layout and context intact across different physical locations.
+
+---
+
 ## Installation (macOS)
 
 ### 1. Clone repository
