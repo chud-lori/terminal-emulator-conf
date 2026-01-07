@@ -46,6 +46,7 @@ layout name="work" {
                 color_orange "#fab387"
                 color_yellow "#f9e2af"
                 color_red "#f38ba8"
+                color_teal "#94e2d5"
 
                 // ===== Tabs =====
                 tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
@@ -60,10 +61,9 @@ layout name="work" {
                 mode_locked "#[fg=$red,bold]#[bg=$red,fg=#11111b] 󰌾 LOCKED #[fg=$red,bg=default]"
 
                 // ===== Fullscreen Indicator =====
-                // Normal active tab (Blue)
-                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
                 // Fullscreen active tab (Yellow) - Use this instead of the indicator
                 tab_active_fullscreen "#[fg=$yellow]#[bg=$yellow,fg=#11111b,bold] {name} (FULL) #[fg=$yellow,bg=default] "
+                tab_active_sync       "#[fg=$teal]#[bg=$teal,fg=#11111b,bold] {name} (SYNC) #[fg=$teal,bg=default] "
 
                 format_hide_on_normal "false"
             }
