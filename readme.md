@@ -84,7 +84,7 @@ source ~/.zshrc
 Start the main development workspace:
 
 ```bash
-work
+work-tab
 ```
 
 ---
@@ -121,6 +121,19 @@ So all bindings using **Alt** can be triggered with the **Option (⌥)** key.
 - `Alt / Option + j` → move down
 - `Alt / Option + k` → move up
 - `Alt / Option + l` → move right
+
+---
+
+---
+
+### Pane Sync (Multi-Input)
+
+- **Toggle Sync Mode**: `Ctrl + t` then `s`
+- **Disable Sync Mode**: `Ctrl + t` then `s` (same toggle)
+- **Effect**: When enabled, any text typed in the active pane is broadcasted to **all** panes within the current tab simultaneously.
+- **Visual Indicators**:
+    - **Enabled**: The active tab in the status bar turns **Teal** and displays `(SYNC)`.
+    - **Disabled**: The tab returns to the standard **Blue** style.
 
 ---
 
