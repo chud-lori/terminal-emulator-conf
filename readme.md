@@ -153,6 +153,27 @@ So all bindings using **Alt** can be triggered with the **Option (⌥)** key.
 
 ---
 
+### Floating Pane
+
+- **Enter pane mode**: `Ctrl + p`
+- **Move focus**: `Ctrl + w`
+- **Close floating pane**: `type exit`
+
+---
+
+### Search Mode
+
+- **Enter search mode**: `Ctrl + s`
+- **Type a new search query**: `s` (Enters `TYPE-SEARCH` mode)
+- **Go to next match**: `n`
+- **Go to previous match**: `p`
+- **Toggle case sensitivity**: `c`
+- **Toggle whole word matching**: `o`
+- **Toggle search wrap**: `w`
+- **Exit search / Return to normal mode**: `Esc` or `Ctrl + c`
+
+---
+
 ### Fullscreen Pane (Toggle)
 
 - **Fullscreen focused pane**: `Ctrl + p` then `f`
