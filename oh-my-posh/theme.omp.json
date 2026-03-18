@@ -64,10 +64,41 @@
           "template": " x{{ reason .Code }}"
         },
         {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#7DC4E4",
+          "template": "  {{ .Full }}",
+          "options": {
+            "fetch_version": true,
+            "cache_duration": "10m"
+          }
+        },
+        {
+          "type": "rust",
+          "style": "plain",
+          "foreground": "#FF8C00",
+          "template": "  {{ .Full }}",
+          "options": {
+            "fetch_version": true,
+            "cache_duration": "10m"
+          }
+        },
+        {
+          "type": "node",
+          "style": "plain",
+          "foreground": "#A6E3A1",
+          "template": " \ue718 {{ .Full }}",
+          "options": {
+            "fetch_version": true,
+            "display_mode": "files",
+            "cache_duration": "10m"
+          }
+        },
+        {
           "type": "python",
           "style": "plain",
           "foreground": "#98C379",
-          "template": "{{ if or (.Venv) (.Env.VIRTUAL_ENV) }}  {{ if .Venv }}{{ .Venv }}{{ else }}{{ .Env.VIRTUAL_ENV | base }}{{ end }} {{ .Major }}.{{ .Minor }}.{{ .Patch }}{{ end }}",
+          "template": "{{ if or (.Venv) (.Env.VIRTUAL_ENV) }}  {{ if .Venv }}{{ .Venv }}{{ else }}{{ .Env.VIRTUAL_ENV | base }}{{ end }} {{ .Major }}.{{ .Minor }}.{{ .Patch }}{{ end }}",
           "options": {
             "display_mode": "environment",
             "fetch_virtual_env": true,
@@ -86,7 +117,8 @@
           "template": " {{ .FormattedMs }} ",
           "options": {
             "style": "roundrock",
-            "always_enabled": true
+            "always_enabled": true,
+            "threshold": 500
           }
         }
       ]

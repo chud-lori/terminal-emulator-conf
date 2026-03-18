@@ -1,38 +1,58 @@
 theme = "Atom One Dark"
 
 font-family = "JetBrainsMono NFM Regular"
-
 font-size = 13
+font-feature = +calt
+font-feature = +liga
+font-feature = +ss01
+font-feature = +ss02
+font-feature = +ss19
+font-feature = +ss20
 
 window-padding-x = 10
-
 window-padding-y = 10
-
 window-decoration = true
-
-cursor-style=block
-
-adjust-cell-height=35%
-
-mouse-scroll-multiplier = 2
-
 window-colorspace = "display-p3"
-
-copy-on-select = clipboard
-
 window-padding-balance = true
-
 window-save-state = always
 
-macos-titlebar-style = transparent
+cursor-style = block
+cursor-style-blink = true
+adjust-cell-height = 35%
+
+mouse-scroll-multiplier = 2
+copy-on-select = clipboard
 
 macos-option-as-alt = true
+macos-titlebar-style = transparent
 
 background-opacity = 0.95
-
 background-blur = 30
 
 selection-background = "#3E4451"
-
 selection-foreground = "#E6E6E6"
 
+# Open URLs with cmd+click
+mouse-hide-while-typing = true
+
+# Keybindings
+keybind = cmd+t=new_tab
+keybind = cmd+w=close_surface
+keybind = cmd+n=new_window
+keybind = cmd+shift+n=new_window
+keybind = cmd+1=goto_tab:1
+keybind = cmd+2=goto_tab:2
+keybind = cmd+3=goto_tab:3
+keybind = cmd+4=goto_tab:4
+keybind = cmd+5=goto_tab:5
+keybind = cmd+shift+h=previous_tab
+keybind = cmd+shift+l=next_tab
+keybind = cmd+shift+left=previous_tab
+keybind = cmd+shift+right=next_tab
+keybind = cmd+shift+enter=toggle_split_zoom
+keybind = cmd+shift+d=new_split:down
+keybind = cmd+shift+r=new_split:right
+keybind = cmd+equal=increase_font_size:1
+keybind = cmd+minus=decrease_font_size:1
+keybind = cmd+zero=reset_font_size
+keybind = cmd+k=clear_screen

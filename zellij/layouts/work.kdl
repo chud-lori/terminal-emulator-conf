@@ -2,38 +2,13 @@ layout name="work" {
 
     default_tab_template {
 
-        // TOP BAR (zjstatus)
-        // pane size=1 borderless=true {
-        //     plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
-        //         // -- COLORS --
-        //         color_bg "#1e1e2e"
-        //         color_fg "#cdd6f4"
-        //         color_active "#89b4fa"
-        //         color_inactive "#313244"
-        //         color_magenta "#cba6f7"
-        //
-        //         // -- FORMATTING --
-        //         format_left  "#[fg=$active,bold]  {session} {tabs}"
-        //         format_right "#[fg=$magenta,bold]#[bg=$magenta,fg=#11111b]  {cwd} #[fg=$magenta,bg=default]"
-        //         format_space ""
-        //
-        //         // -- TABS --
-        //         tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
-        //         tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
-        //
-        //         // -- MODES --
-        //         mode_normal "#[fg=$active] {name} "
-        //         mode_locked "#[fg=#f38ba8] {name} "
-        //     }
-        // }
-
         // MAIN CONTENT
         children
 
         pane size=1 borderless=true {
             plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
                 // ===== Layout =====
-                format_left  "#[fg=$lavender,bold]  {session} #[fg=$inactive]│ {tabs}"
+                format_left  "#[fg=$lavender,bold]  {session} #[fg=$inactive]│ {tabs}"
                 format_right "{mode}"
 
                 // ===== Colors =====
@@ -48,50 +23,38 @@ layout name="work" {
                 color_red "#f38ba8"
 
                 // ===== Tabs =====
-                tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
-                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
+                tab_normal "#[fg=$inactive]#[bg=$inactive,fg=$fg] {name} #[fg=$inactive,bg=default] "
+                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
 
                 // ===== Modes =====
-                mode_normal "#[fg=$lavender,bold]#[bg=$lavender,fg=#11111b] 󰍹 NORMAL #[fg=$lavender,bg=default]"
-                mode_pane   "#[fg=$green,bold]#[bg=$green,fg=#11111b] 󰌒 PANE #[fg=$green,bg=default]"
-                mode_resize "#[fg=$orange,bold]#[bg=$orange,fg=#11111b] 󰉉 RESIZE #[fg=$orange,bg=default]"
-                mode_move   "#[fg=$yellow,bold]#[bg=$yellow,fg=#11111b] 󰆾 MOVE #[fg=$yellow,bg=default]"
-                mode_tab    "#[fg=$active,bold]#[bg=$active,fg=#11111b] 󰓩 TAB #[fg=$active,bg=default]"
-                mode_locked "#[fg=$red,bold]#[bg=$red,fg=#11111b] 󰌾 LOCKED #[fg=$red,bg=default]"
+                mode_normal "#[fg=$lavender,bold]#[bg=$lavender,fg=#11111b] 󰍹 NORMAL #[fg=$lavender,bg=default]"
+                mode_pane   "#[fg=$green,bold]#[bg=$green,fg=#11111b] 󰌒 PANE #[fg=$green,bg=default]"
+                mode_resize "#[fg=$orange,bold]#[bg=$orange,fg=#11111b] 󰉉 RESIZE #[fg=$orange,bg=default]"
+                mode_move   "#[fg=$yellow,bold]#[bg=$yellow,fg=#11111b] 󰆾 MOVE #[fg=$yellow,bg=default]"
+                mode_tab    "#[fg=$active,bold]#[bg=$active,fg=#11111b] 󰓩 TAB #[fg=$active,bg=default]"
+                mode_locked "#[fg=$red,bold]#[bg=$red,fg=#11111b] 󰌾 LOCKED #[fg=$red,bg=default]"
 
                 // ===== Fullscreen Indicator =====
-                // Normal active tab (Blue)
-                tab_active "#[fg=$active]#[bg=$active,fg=#11111b,bold] {name} #[fg=$active,bg=default] "
-                // Fullscreen active tab (Yellow) - Use this instead of the indicator
-                tab_active_fullscreen "#[fg=$yellow]#[bg=$yellow,fg=#11111b,bold] {name} (FULL) #[fg=$yellow,bg=default] "
+                tab_active_fullscreen "#[fg=$yellow]#[bg=$yellow,fg=#11111b,bold] {name} (FULL) #[fg=$yellow,bg=default] "
 
                 format_hide_on_normal "false"
             }
         }
-
-
-        // BOTTOM STATUS (builtin, optional but recommended)
-        // pane size=2 borderless=true {
-        //     plugin location="zellij:status-bar"
-        // }
     }
 
     // =====================================================
-    // AI TAB (single pane)
+    // AI TAB (single pane - for Claude Code, ChatGPT, etc.)
     // =====================================================
     tab name="AI" focus=true {
         pane
     }
 
     // =====================================================
-    // Code TAB (4 panes - 2x2 grid)
+    // Code TAB (editor left, terminal right)
     // =====================================================
     tab name="Code" {
         pane split_direction="vertical" {
-            pane split_direction="horizontal" {
-                pane
-                pane
-            }
+            pane size="70%"
             pane split_direction="horizontal" {
                 pane
                 pane
@@ -100,12 +63,28 @@ layout name="work" {
     }
 
     // =====================================================
-    // App Runner TAB (2 vertical splits)
+    // Git TAB (lazygit top, log/diff bottom)
     // =====================================================
-    tab name="App Runner" {
+    tab name="Git" {
+        pane split_direction="horizontal" {
+            pane size="70%"
+            pane split_direction="vertical" {
+                pane
+                pane
+            }
+        }
+    }
+
+    // =====================================================
+    // App Runner TAB (main left, logs/tests right)
+    // =====================================================
+    tab name="Run" {
         pane split_direction="vertical" {
-            pane
-            pane
+            pane size="60%"
+            pane split_direction="horizontal" {
+                pane
+                pane
+            }
         }
     }
 

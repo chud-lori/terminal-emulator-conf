@@ -55,7 +55,51 @@ fi
 if ! grep -q 'alias work=' "$ZSHRC"; then
     # gracefull start and start from home dir
   echo 'alias work-tab="cd; zellij delete-session work 2>/dev/null; zellij --new-session-with-layout work --session work"' >> "$ZSHRC"
+fi
 
+# zsh-autosuggestions
+if ! grep -q "zsh-autosuggestions" "$ZSHRC"; then
+  echo 'source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh' >> "$ZSHRC"
+fi
+
+# zsh-syntax-highlighting
+if ! grep -q "zsh-syntax-highlighting" "$ZSHRC"; then
+  echo 'source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> "$ZSHRC"
+fi
+
+# fzf shell integration
+if ! grep -q 'eval "$(fzf --zsh)"' "$ZSHRC"; then
+  echo 'eval "$(fzf --zsh)"' >> "$ZSHRC"
+fi
+
+# Useful dev aliases
+if ! grep -q "# Dev aliases" "$ZSHRC"; then
+  cat >> "$ZSHRC" << 'ALIASES'
+
+# Dev aliases
+alias ls="eza --icons"
+alias ll="eza -la --icons --git"
+alias lt="eza --tree --icons --level=2"
+alias cat="bat --style=plain"
+alias grep="rg"
+alias find="fd"
+alias lg="lazygit"
+alias k="kubectl"
+alias d="docker"
+alias dc="docker compose"
+
+# fzf with ripgrep
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --preview 'bat --style=numbers --color=always {} 2>/dev/null || echo {}'"
+
+# bat theme
+export BAT_THEME="Atom One Dark"
+
+# Editor
+export EDITOR="nvim"
+export VISUAL="nvim"
+ALIASES
 fi
 
 echo "✔ Setup complete"
