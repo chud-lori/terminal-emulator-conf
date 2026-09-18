@@ -37,6 +37,7 @@ ln -sf "$(pwd)/zellij/config.kdl" ~/.config/zellij/config.kdl
 ln -sf "$(pwd)/zellij/layouts/work.kdl" ~/.config/zellij/layouts/work.kdl
 ln -sf "$(pwd)/ghostty/config" ~/.config/ghostty/config
 ln -sf "$(pwd)/oh-my-posh/theme.omp.json" ~/.config/oh-my-posh/theme.omp.json
+ln -sf "$(pwd)/oh-my-posh/omp-pin-config.zsh" ~/.config/oh-my-posh/omp-pin-config.zsh
 
 ZSHRC="$HOME/.zshrc"
 
@@ -46,6 +47,12 @@ if ! grep -q "oh-my-posh init zsh" "$ZSHRC"; then
   echo "" >> "$ZSHRC"
   echo "# Oh My Posh" >> "$ZSHRC"
   echo 'eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.json)"' >> "$ZSHRC"
+fi
+
+# Pins the omp theme per render; stops mid-session fallback to the default
+# theme when omp's per-session config cache expires (see omp-pin-config.zsh).
+if ! grep -q "omp-pin-config.zsh" "$ZSHRC"; then
+  echo '[ -f ~/.config/oh-my-posh/omp-pin-config.zsh ] && source ~/.config/oh-my-posh/omp-pin-config.zsh' >> "$ZSHRC"
 fi
 
 if ! grep -q "export TERM=xterm-256color" "$ZSHRC"; then

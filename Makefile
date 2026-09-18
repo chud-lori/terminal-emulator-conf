@@ -29,6 +29,7 @@ link:
 	ln -sf $(PWD)/zellij/layouts/work.kdl ~/.config/zellij/layouts/work.kdl
 	ln -sf $(PWD)/ghostty/config ~/.config/ghostty/config
 	ln -sf $(PWD)/oh-my-posh/theme.omp.json ~/.config/oh-my-posh/theme.omp.json
+	ln -sf $(PWD)/oh-my-posh/omp-pin-config.zsh ~/.config/oh-my-posh/omp-pin-config.zsh
 
 install: deps
 	chmod +x setup.sh
